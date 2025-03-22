@@ -62,7 +62,7 @@ public class CategoryGraph {
         invalidateCache();
     }
 
-    // 보드와 카테고리의 관계 추가 (다대다 관계)
+    // 보드와 카테고리의 관계 추가
     public void addCategoryBoardRelation(Long categoryId, Long boardId) {
         Board board;
         if (boardId == 0L) {
@@ -89,7 +89,6 @@ public class CategoryGraph {
         // 최하위 카테고리 저장
         board.setCategory(category);
         category.setBoard(board);
-
     }
 
 

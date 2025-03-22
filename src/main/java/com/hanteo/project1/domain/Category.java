@@ -26,9 +26,6 @@ public class Category {
         }
         children.add(child);
     }
-    public void setChildren(List<Category> childList) {
-        this.children = childList;
-    }
     public void setBoard(Board board) {
         this.board = board;
     }
