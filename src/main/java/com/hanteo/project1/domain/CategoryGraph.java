@@ -3,6 +3,7 @@ package com.hanteo.project1.domain;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hanteo.project1.domain.dto.CategoryDTO;
+import com.hanteo.project1.exception.BoardException;
 import com.hanteo.project1.exception.CategoryException;
 import com.hanteo.project1.exception.ErrorCode;
 
@@ -23,13 +24,16 @@ public class CategoryGraph {
 
 
     // 관계를 관리하는 리스트
-    private final Set<BoardCategoryRelation> categoryBoardRelations = ConcurrentHashMap.newKeySet();
+    private final Map<Long, Set<Long>> boardCategoryMap = new ConcurrentHashMap<>();
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
 
     // 게시판 추가
     public void addBoard(Long boardId, String name) {
+        if (boardMap.get(boardId) != null) {
+            throw new BoardException(ErrorCode.DUPLICATED_BOARD, "아이디를 확인해주세요.");
+        }
         Board board = Board.builder()
                 .id(boardId)
                 .name(name)
@@ -41,6 +45,10 @@ public class CategoryGraph {
     public void addCategory (Long id, String name, Long parentId) {
         if(parentId != null && !categoryMap.containsKey(parentId)) {
             throw new CategoryException(ErrorCode.CATEGORY_NOT_FOUND, "해당 상위 카테고리가 존재하지 않습니다.");
+        }
+
+        if (categoryMap.get(id) != null) {
+            throw new CategoryException(ErrorCode.DUPLICATED_CATEGORY, "이미 존재하는 카테고리입니다.");
         }
 
         Category category = Category.builder()
@@ -71,12 +79,9 @@ public class CategoryGraph {
             throw new CategoryException(ErrorCode.CATEGORY_NOT_FOUND, "카테고리를 찾을 수 없습니다: ID " + categoryId);
         }
 
-        // 이미 존재하는 관계인지 확인
-        BoardCategoryRelation relation = BoardCategoryRelation.builder()
-                .board(board)
-                .category(category)
-                .build();
-        if (categoryBoardRelations.contains(relation)) {
+        // 이미 존재하는 관계인지 확인 (중복 체크 개선)
+        Set<Long> relatedCategories = boardCategoryMap.computeIfAbsent(boardId, k -> new HashSet<>());
+        if (!relatedCategories.add(categoryId)) {
             System.out.println("이미 존재하는 관계: Board ID = " + boardId + ", Category ID = " + categoryId);
             throw new CategoryException(ErrorCode.DUPLICATED_CATEGORY, "중복된 카테고리 설정입니다.");
         }
@@ -84,7 +89,7 @@ public class CategoryGraph {
         // 최하위 카테고리 저장
         board.setCategory(category);
         category.setBoard(board);
-        categoryBoardRelations.add(relation);
+
     }
 
 

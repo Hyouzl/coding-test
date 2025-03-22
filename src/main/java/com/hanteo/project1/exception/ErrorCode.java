@@ -16,7 +16,8 @@ public enum ErrorCode {
     DUPLICATED_CATEGORY(HttpStatus.NOT_ACCEPTABLE, "CATEGORY4003", "중복된 카테고리입니다."),
 
     // 게시판
-    BOARD_NOT_FOUND(HttpStatus.NOT_FOUND, "BOARD4001", "게시판을 찾을 수 없습니다.");
+    BOARD_NOT_FOUND(HttpStatus.NOT_FOUND, "BOARD4001", "게시판을 찾을 수 없습니다."),
+    DUPLICATED_BOARD(HttpStatus.NOT_ACCEPTABLE, "BOARD4003", "중복된 게시판입니다.");
 
 
 
