@@ -1,6 +1,9 @@
 # 한터 글로벌 코딩 테스트 과제
 <hr/>
 
+
+# 문제 1
+
 ## 🔍 문제 분석
 
 요구사항에 따르면, 다음과 같은 기능과 조건을 만족해야 합니다.
@@ -63,4 +66,11 @@ CategoryGraph
  <br />
 <img width="284" alt="스크린샷 2025-03-23 오전 2 07 32" src="https://github.com/user-attachments/assets/d5702db6-d156-43e7-9d1a-ae46ab4fb39f" /> <br />
 <img width="276" alt="스크린샷 2025-03-23 오전 2 07 56" src="https://github.com/user-attachments/assets/d4d2e5ae-60af-476e-864e-eff2f2bf3cfd" /> <br />
+
+<hr/>
+
+
+# 문제 2
+
+서로 다른 종류의 통화를 나타내는 N 크기의 coin[ ] 정수 배열과 정수 합계가 주어지면, <br />coin[]의 다양한 조합을 사용하여 합계를 만드는 방법의 수를 찾는 것이 과제
 
