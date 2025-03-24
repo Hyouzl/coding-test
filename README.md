@@ -72,5 +72,9 @@ CategoryGraph
 
 # 문제 2
 
-서로 다른 종류의 통화를 나타내는 N 크기의 coin[ ] 정수 배열과 정수 합계가 주어지면, <br />coin[]의 다양한 조합을 사용하여 합계를 만드는 방법의 수를 찾는 것이 과제
+서로 다른 종류의 통화를 나타내는 N 크기의 coin[ ] 정수 배열과 정수 합계가 주어지면, <br />coin[]의 다양한 조합을 사용하여 합계를 만드는 방법의 수를 찾는 것이 과제 <br/>
+<br/><img width="460" alt="스크린샷 2025-03-24 오후 1 04 16" src="https://github.com/user-attachments/assets/25ae4a1b-8521-4423-adff-01d23ef86c64" /> 
+<img width="384" alt="스크린샷 2025-03-24 오후 1 03 49" src="https://github.com/user-attachments/assets/72c0e482-6123-4154-8cce-3059f1862ca3" />
+
+
 
