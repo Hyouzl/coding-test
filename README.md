@@ -53,3 +53,14 @@ CategoryGraph
 
 - 익명 게시판 처리
   - 익명 게시판을 조회하면 해당 카테고리의 익명 게시판 정보를 반환하여  사용자가 어느 카테고리에서 접근하든 동일한 익명 게시판을 확인할 수 있습니다.
+
+<hr/>
+
+### Test Case
+<img width="459" alt="스크린샷 2025-03-23 오전 1 31 39" src="https://github.com/user-attachments/assets/8b9a0559-7f10-4367-aba4-e316a3417c8a" /> <br />
+
+### Test Result
+ <br />
+<img width="284" alt="스크린샷 2025-03-23 오전 2 07 32" src="https://github.com/user-attachments/assets/d5702db6-d156-43e7-9d1a-ae46ab4fb39f" /> <br />
+<img width="276" alt="스크린샷 2025-03-23 오전 2 07 56" src="https://github.com/user-attachments/assets/d4d2e5ae-60af-476e-864e-eff2f2bf3cfd" /> <br />
+
